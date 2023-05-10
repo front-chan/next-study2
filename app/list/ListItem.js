@@ -1,13 +1,8 @@
 "use client";
 
 import Link from "next/link";
-// import { useEffect } from "react"
 
 export default function ListItem(props) {
-    // useEffect(() => {
-    //   result =
-    // }, [])
-
     return (
         <div>
             {props.result.map((r) => (
@@ -17,11 +12,19 @@ export default function ListItem(props) {
                     </Link>
                     <Link href={`/edit/${r._id}`}>🖍️</Link>
                     <span
-                        onClick={() => {
+                        onClick={(e) => {
                             fetch("/api/post/delete", {
                                 method: "POST",
                                 body: r._id,
-                            }).then(() => console.log("삭제완료"));
+                            })
+                                // .then((r) => r.json())
+                                .then(() => {
+                                    e.target.parentElement.style.opacity = 0;
+                                    setTimeout(() => {
+                                        e.target.parentElement.style.display =
+                                            "none";
+                                    }, 1000);
+                                });
                         }}
                     >
                         {" "}

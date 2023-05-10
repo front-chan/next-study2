@@ -10,7 +10,7 @@ export default async function handler(res, req) {
             const db = client.db("forum");
             let result = await db.collection("post").insertOne(res.body);
             // return req.status(200).json("처리완료");
-            return req.status(200).redirect("/list");
+            return req.status(200).redirect(302, "/list");
         }
     }
 }

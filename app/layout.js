@@ -18,6 +18,8 @@ export default function RootLayout({ children }) {
                         Chan-Forum
                     </Link>
                     <Link href="/list">List</Link>
+                    <Link href="/write">Write</Link>
+                    <Link href="/signup">SignUp</Link>
                 </div>
                 {children}
             </body>
